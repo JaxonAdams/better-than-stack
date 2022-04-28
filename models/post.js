@@ -25,6 +25,10 @@ Post.init(
                 isURL: true
             }
         },
+        topic: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
