@@ -3,6 +3,9 @@ const sequelize = require('../config/connection');
 
 class Post extends Model {}
 
+// TO DO! ADD TOPIC TAGS AND UPDATE WHERE NEEDED
+
+
 Post.init(
     {
         id: {
