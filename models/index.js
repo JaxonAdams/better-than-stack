@@ -32,17 +32,20 @@ Post.hasMany(Comment, {
     foreignKey: 'post_id'
 });
 
-Post.belongsToMany(Topic, {
-    through: PostTopic,
-    as: 'posts',
-    foreignKey: 'post_id'
-});
+// Post.belongsToMany(Topic, {
+//     through: PostTopic,
+//     as: 'posts',
+//     foreignKey: 'post_id'
+// });
 
-// Tags belongToMany Products (through ProductTag)
-Topic.belongsToMany(Posts, {
-    through: PostTopic,
-    as: 'topics',
-    foreignKey: 'topic_name'
-});
+// // Tags belongToMany Products (through ProductTag)
+// Topic.belongsToMany(Posts, {
+//     through: PostTopic,
+//     as: 'topics',
+//     foreignKey: 'topic_name'
+// });
 
-module.exports = { User, Post, Topic, Comment, PostTopic };
+Topic.hasMany(Post, {
+    foreignKey: 'post_id',
+});
+module.exports = { User, Post, Topic, Comment, };

@@ -2,28 +2,25 @@ const { Topic } = require('../models');
 
 const topicData = [
     {
-        topic: 'HTML',
+        topic_name: 'HTML',
     },
     {
-        topic: 'CSS',
+        topic_name: 'CSS',
     },
     {
-        topic: 'JavaScript',
+        topic_name: 'Bootstrap',
     },
     {
-        topic: 'Node',
+        topic_name: 'JavaScript',
     },
     {
-        topic: 'SQL',
+        topic_name: 'Node.js',
     },
     {
-        topic: 'ORM',
+        topic_name: 'Express',
     },
     {
-        topic: 'MVC',
-    },
-    {
-        topic: 'React',
+        topic_name: 'mySQL',
     },
 ];
 
