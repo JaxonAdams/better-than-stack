@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote } = require('../../models');
-const withAuth = require('../utils/auth');
+const { Post, User, Comment } = require('../../models');
+// const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     console.log('======================');
@@ -76,18 +76,21 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    if (req.session) {
+    // router.post('/', withAuth, (req, res) => {
+
+    // if (req.session) {
         Post.create({
             title: req.body.title,
             post_url: req.body.post_url,
-            user_id: req.session.user_id
+            user_id: req.body.user_id
+            // user_id: req.session.user_id
         })
             .then(dbPostData => res.json(dbPostData))
             .catch(err => {
                 console.log(err);
                 res.status(500).json(err);
             });
-    }
+    // }
 });
 
 module.exports = router;

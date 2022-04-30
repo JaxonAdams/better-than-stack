@@ -25,15 +25,22 @@ Post.init(
                 isURL: true
             }
         },
-        topic: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // topic: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'
+            }
+        },
+        topic_name: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'topic',
+                key: 'topic_name'
             }
         }
     },
