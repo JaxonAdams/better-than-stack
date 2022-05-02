@@ -1,5 +1,4 @@
 const router = require('express').Router();
-// const sequelize = require('../../config/connection');
 const { Topic} = require('../../models');
 
 // get all topics
@@ -19,7 +18,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
     Topic.create({
         topic_name: req.body.topic_name,
     })

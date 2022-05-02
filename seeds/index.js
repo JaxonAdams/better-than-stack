@@ -1,7 +1,7 @@
 const seedTopics = require('./topic-seeds');
 const seedPosts = require('./post-seeds');
-// const seedTags = require('./tag-seeds');
-// const seedProductTags = require('./product-tag-seeds');
+const seedUsers = require('./user-seeds');
+
 
 const sequelize = require('../config/connection');
 
@@ -9,12 +9,16 @@ const seedAll = async () => {
     await sequelize.sync({ force: true });
     console.log('\n----- DATABASE SYNCED -----\n');
     
+    await seedUsers();
+    console.log('\n----- USERS SEEDED -----\n');
+    
     await seedTopics();
-    console.log('\n----- CATEGORIES SEEDED -----\n');
+    console.log('\n----- Topics SEEDED -----\n');
 
     await seedPosts();
-    console.log('\n----- PRODUCTS SEEDED -----\n');
+    console.log('\n----- POSTS SEEDED -----\n');
 
+    
 
     process.exit(0);
 };

@@ -8,42 +8,33 @@ User.hasMany(Post, {
     foreignKey: 'user_id'
 });
 
-Post.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-});
-
-Comment.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-});
-
-Comment.belongsTo(Post, {
-    foreignKey: 'post_id',
-    onDelete: 'SET NULL'
-});
-
 User.hasMany(Comment, {
     foreignKey: 'user_id',
-    onDelete: 'SET NULL'
+});
+
+Post.belongsTo(User, {
+    foreignKey: 'user_id',
 });
 
 Post.hasMany(Comment, {
     foreignKey: 'post_id'
 });
 
-Post.belongsToMany(Topic, {
-    through: PostTopic,
-    as: 'posts',
+Post.belongsTo(Topic, {
     foreignKey: 'post_id'
 });
 
-// Tags belongToMany Products (through ProductTag)
-Topic.belongsToMany(Post, {
-    through: PostTopic,
-    as: 'topics',
-    foreignKey: 'topic_id'
+Comment.belongsTo(User, {
+    foreignKey: 'user_id',
 });
+
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id',
+});
+
+// Topic.belongsToMany(Post, {
+//     foreignKey: 'topic_id'
+// });
 
 Topic.hasMany(Post, {
     foreignKey: 'post_id',
