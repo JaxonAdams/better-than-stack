@@ -1,37 +1,27 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-//const { Post, User, Comment, Vote } = require('../models');
-const User = require('../models/user');
-const Post = require('../models/post');
-const Comment = require('../models/comment');
-const withAuth = require('../utils/auth');
+const { Post, User, Comment, Vote } = require('../models');
+// const withAuth = require('../utils/auth');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
-    attributes: ['id', 'post_url', 'title', 'topic', 'created_at']
-    // include: [
-    //   {
-    //     model: Comment,
-    //     attributes: [
-    //       'id',
-    //       'comment_text',
-    //       'post_id',
-    //       'user_id',
-    //       'topic',
-    //       'created_at'
-    //     ],
-    //     include: {
-    //       model: User,
-    //       attributes: ['username']
-    //     }
-    //   },
-    //   {
-    //     model: User,
-    //     attributes: ['username']
-    //   }
-    // ]
+    attributes: ['id', 'post_url', 'title', 'created_at'],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
   })
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
@@ -53,18 +43,11 @@ router.get('/post/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'post_url', 'title', 'topic', 'created_at'],
+    attributes: ['id', 'post_url', 'title', 'created_at'],
     include: [
       {
         model: Comment,
-        attributes: [
-          'id',
-          'comment_text',
-          'post_id',
-          'user_id',
-          'topic',
-          'created_at'
-        ],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -85,8 +68,8 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       res.render('single-post', {
-        post,
-        loggedIn: req.session.loggedIn
+        post
+        // loggedIn: req.session.loggedIn
       });
     })
     .catch((err) => {

@@ -3,7 +3,6 @@ const sequelize = require('../config/connection');
 
 class Post extends Model {}
 
-// TO DO! ADD TOPIC TAGS AND UPDATE WHERE NEEDED
 
 
 Post.init(
@@ -25,17 +24,13 @@ Post.init(
                 isURL: true
             }
         },
-        topic: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'
             }
-        }
+        },
     },
     {
         sequelize,
