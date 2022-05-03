@@ -13,7 +13,7 @@ const userData = [
         email: 'hollie@hollie.com',
         password: 'password',
     },
-    console.log("users seeded")
+    // console.log("users seeded")
 ];
 
 const seedUsers = () => User.bulkCreate(userData);

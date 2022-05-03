@@ -13,7 +13,7 @@ const postData = [
         // topic_name: 'JavaScript',
         user_id: '2'
     },
-    console.log("posts seeded")
+    // console.log("posts seeded")
 ];
 
 const seedPosts = () => Post.bulkCreate(postData);
