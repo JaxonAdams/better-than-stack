@@ -28,47 +28,4 @@ router.post('/', (req, res) => {
         });
 });
 
-router.put('/:id', (req, res) => {
-    Topic.update(
-        {
-            topic_name: req.body.topic_name,
-        },
-        {
-            where: {
-                id: req.params.id
-            }
-        }
-    )
-        .then(dbTopicData => {
-            if (!dbTopicData) {
-                res.status(404).json({ message: 'No topic found with this id' });
-                return;
-            }
-            res.json(dbTopicData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-
-router.delete('/:id', (req, res) => {
-    Topic.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(dbTopicData => {
-            if (!dbTopicData) {
-                res.status(404).json({ message: 'No topic found with this id' });
-                return;
-            }
-            res.json(dbTopicData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-
 module.exports = router;
