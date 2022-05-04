@@ -1,10 +1,10 @@
 <section>
     <div class="container">
         <div class="columns">
-            <div class="column is-6">
+            <div id="signup-form" class="column is-6">
                 <div class="m-6">
                     <p class="title is-size-3 has-text-centered">Create an Account</p>
-                        <div class="field">
+                        {{!-- <div class="field">
                             <label class="label is-medium">Name</label>
                             <div class="control">
                             <input
@@ -12,7 +12,7 @@
                                 type="text"
                                 placeholder="Full Name"/>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="field">
                             <label class="label is-medium">Username</label>
@@ -20,6 +20,7 @@
                             <input
                                 class="input is-medium"
                                 type="text"
+                                id="username-signup"
                                 placeholder="Username"/>
                             </div>    
                         </div>
@@ -30,6 +31,7 @@
                                 <input
                                 class="input is-medium"
                                 type="email"
+                                id="email-signup"
                                 placeholder="Email"/>
                             </div>
                         </div>
@@ -40,6 +42,7 @@
                                 <input
                                 class="input is-medium"
                                 type="password"
+                                id="password-signup"
                                 placeholder="Password"/>
                             </div>
                         </div>
@@ -52,17 +55,18 @@
                 </div>
             </div>
 
-            <div class="column is-6">
+            <div id="login-form" class="column is-6">
                 <div class="m-6">
                 <p class="title is-size-3 has-text-centered">Login</p>
 
                 <div class="field">
-                    <label class="label is-medium">Username</label>
+                    <label class="label is-medium">Email</label>
                     <div class="control">
                         <input
                             class="input is-medium"
                             type="text"
-                            placeholder="Username"/>
+                            id="email-login"
+                            placeholder="Email"/>
                     </div>
                 </div>        
 
@@ -72,6 +76,7 @@
                         <input
                         class="input is-medium"
                         type="password"
+                        id="password-login"
                         placeholder="Password"/>
                     </div>
                 </div>

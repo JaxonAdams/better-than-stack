@@ -2,10 +2,10 @@
     <div class="container">
         <div class="columns">
             <div class="column is-half is-offset-one-quarter">
-                <div class="m-6">
+                <div class=" new-post-form m-6">
                     <p class="title is-size-3 has-text-centered">Submit a Question</p>
                     <div class="field">
-                        <label class="label">Question Title</label>
+                        <label for="post-title" class="label">Question Title</label>
                         <div class="control">
                         <input class="input" type="text" placeholder="Question Title" />
                         </div>
@@ -39,11 +39,11 @@
 
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-info">Submit</button>
+                            <button type="submit" class="button is-info">Submit</button>
                         </div>
-                        <div class="control">
+                        {{!-- <div class="control">
                             <button class="button is-info is-light">Cancel</button>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
