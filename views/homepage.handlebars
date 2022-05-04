@@ -2,7 +2,7 @@
     <div class="container">
         <div class="columns is-vcentered">
             <div class="column is-4">
-                <p class="has-text-left is-size-3 title">Suggested For You</p>
+                <p class="has-text-left is-size-3 title">Suggested For Me</p>
                 <a class="is-size-4">"Suggested Search"</a><br />
                 <a class="is-size-4">"Suggested Search"</a><br />
                 <a class="is-size-4">"Suggested Search"</a><br />
@@ -53,10 +53,17 @@
             <div class="column is-8">
                 <p class="has-text-centered is-size-3 title">Recent Questions</p>
                 <div class="has-text-centered is-size-4">
+                    {{!-- <a>This is a question posted by a user.</a><br />
                     <a>This is a question posted by a user.</a><br />
                     <a>This is a question posted by a user.</a><br />
-                    <a>This is a question posted by a user.</a><br />
-                    <a>This is a question posted by a user.</a>
+                    <a>This is a question posted by a user.</a> --}}
+                    <ol class="post-list">
+                        {{#each posts as |post|}}
+                        <li>
+                            {{> post-info post }}
+                        </li>
+                        {{/each}}
+                    </ol>
                 </div>
             </div>
         </div>

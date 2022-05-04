@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Better Than Stack</title>
     <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";">
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
     <!-- navigation bar -->
@@ -21,17 +21,13 @@
             </h6>
         </div>
         <div class="navbar-end buttons are-small is-ghost">
-            <a class="has-text-right is-size-4 has-text-black p-6">Login</a>
-            <a class="has-text-right is-size-4 has-text-black p-6">Logout</a>
+            <a id="login" class="has-text-right is-size-4 has-text-black p-6" href="/login">Login</a>
+            <a id="logout" class="has-text-right is-size-4 has-text-black p-6">Logout</a>
         </div>
     </nav>
 
     <main>
         {{{ body }}}
     </main>
-    
-    <footer>
-        Thanks for visiting!
-    </footer>
 </body>
 </html>
