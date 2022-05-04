@@ -22,7 +22,7 @@ const topicData = [
     {
         topic_name: 'mySQL',
     },
-    console.log('topics seeded')
+    // console.log('topics seeded')
 ];
 
 const seedTopics = () => Topic.bulkCreate(topicData);
