@@ -33,4 +33,4 @@ Sometimes browsing forums like Stack Overflow can feel overwhelming to a beginne
   - Sessions
 
 ## Application
-You can visit the site [here](https://github.com/JaxonAdams)!
+You can visit the site [here](https://betterthanstack.herokuapp.com)!
