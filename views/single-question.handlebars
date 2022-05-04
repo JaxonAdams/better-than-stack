@@ -1,26 +1,36 @@
 <section>
     <div class="container">
         <div class="columns">
-            <div class="column">
-                <p class="has-text-centered is-size-3 title">
-                This is the question's title.</p>
+            <div class="column has-text-centered">
+                <p class="has-text-centered is-size-3 title p-6">
+                {{post.title}}</p>
+                <br>
+                <br>
                 <p>
-                    This is the body of the question with all the details. Lorem
-                    ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-                    vel commodi molestiae magnam ipsum, labore mollitia iusto ullam
-                    perferendis et iste. Cumque corrupti reiciendis esse eum dolorem
-                    natus molestias at!
+                    {{post.body}}
                 </p>
-                <button class="button is-info is-outlined p-1">Answer this question</button><br />
-                <p class="has-text-centered is-size-3 title">Answers</p>
+                <br>
+                <br>
+                <a>{{post.post_url}}</a>
+                <br>
+                <br>
+                <a href="/newcomment" class="button is-info is-outlined p-1">Answer this question</a><br />
+                <br>
+                <br>
+                <p class="has-text-centered is-size-3 title">Answers:</p>
                 <div class="has-text-centered is-size-4">
-                    <p>This is an answer provided by a user</p>
+                    {{#each posts as |post|}}
+                        <li class="is-size-4">
+                            {{ post.comment }}
+                        </li>
+                    {{/each}}
+                    {{!-- <p>This is an answer provided by a user</p>
                     <br />
                     <p>This is an answer provided by a user</p>
                     <br />
                     <p>This is an answer provided by a user</p>
                     <br />
-                    <p>This is an answer provided by a user</p>
+                    <p>This is an answer provided by a user</p> --}}
                 </div>
             </div>
         </div>

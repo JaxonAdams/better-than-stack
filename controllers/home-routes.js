@@ -67,7 +67,7 @@ router.get('/post/:id', (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
-      res.render('single-post', {
+      res.render('single-question', {
         post
         // loggedIn: req.session.loggedIn
       });
@@ -76,6 +76,24 @@ router.get('/post/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+router.get('/new', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('question-post');
+});
+
+router.get('/newcomment', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('answer-post');
 });
 
 router.get('/login', (req, res) => {
