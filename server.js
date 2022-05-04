@@ -2,13 +2,29 @@ const path = require('path');
 const express = require('express');
 const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
 const routes = require('./controllers');
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+require('dotenv').config;
+
+const sess = {
+  secret: process.env.SECRET,
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
