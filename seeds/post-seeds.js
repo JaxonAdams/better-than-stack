@@ -10,7 +10,7 @@ const postData = [
     {
         title: 'Learn JavaScript Fast!',
         post_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        topic_id: 3,
+        topic_id: 2,
         user_id: 2
     },
 ];

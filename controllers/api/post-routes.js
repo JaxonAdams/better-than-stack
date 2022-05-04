@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../../models');
+const { Post, User, Comment, Topic } = require('../../models');
 
 // get all posts
 router.get('/', (req, res) => {
@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
             'post_url',
             'title',
             'created_at',
-            'topic_id'
+            'topic_id',
         ],
         order: [['created_at', 'DESC']],
         include: [
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
             },
             // {
             //     model: Topic,
-            //     attributes: ['id', 'topic_name']
+            //     attributes: ['topic_name']
             // }
         ]
     })
@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
         title: req.body.title,
         post_url: req.body.post_url,
         user_id: req.body.user_id,
-        // topic_id: req.body.topic_id,
+        topic_id: req.body.topic_id,
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
