@@ -27,8 +27,8 @@ router.get('/', (req, res) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
 
       res.render('homepage', {
-        posts
-        // loggedIn: req.session.loggedIn
+        posts,
+        loggedIn: req.session.loggedIn
       });
     })
     .catch((err) => {
@@ -68,8 +68,8 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       res.render('single-question', {
-        post
-        // loggedIn: req.session.loggedIn
+        post,
+        loggedIn: req.session.loggedIn
       });
     })
     .catch((err) => {
@@ -87,7 +87,7 @@ router.get('/new', (req, res) => {
   res.render('question-post');
 });
 
-router.get('/newcomment', (req, res) => {
+router.get('/newcomment/:id', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
