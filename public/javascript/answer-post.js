@@ -22,7 +22,7 @@ async function commentFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.reload();
+      document.location.replace(`/posts/${post_id}`);
     } else {
       alert(response.statusText);
     }
@@ -30,5 +30,5 @@ async function commentFormHandler(event) {
 }
 
 document
-  .querySelector('.comment-form')
+  .querySelector('#comment-form')
   .addEventListener('submit', commentFormHandler);
