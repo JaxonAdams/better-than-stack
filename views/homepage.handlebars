@@ -1,24 +1,35 @@
 <section class="section">
     <div class="container">
-        <div class="columns is-vcentered">
+        <div class="columns is-centered">
             <div class="column is-4">
                 <p class="has-text-left is-size-3 title">Suggested For Me</p>
+                {{!-- <a class="is-size-4">"Suggested Search"</a><br />
                 <a class="is-size-4">"Suggested Search"</a><br />
                 <a class="is-size-4">"Suggested Search"</a><br />
-                <a class="is-size-4">"Suggested Search"</a><br />
-                <a class="is-size-4">"Suggested Search"</a>
+                <a class="is-size-4">"Suggested Search"</a> --}}
+                <ul class="post-list">
+                        {{#each posts as |post|}}
+                        <li class="is-size-4">
+                            <a href="/post/{{post.id}}">{{ post.title }}</a>
+                        </li>
+                        {{/each}}
+                </ul>
             </div>
 
             <div class="column is-8">
-                <div class="field has-addons">
+                <div id="ask-question" class="has-text-centered">
+                    <a href="/new" class="button has-text-centered is-info is-size-4">ASK A QUESTION</a>
+                </div>
+                <br>
+                {{!-- <div class="field has-addons">
                     <div class="control is-expanded">
                         <input class="input" type="text" placeholder="Search..." />
                     </div>
                     <div class="control">
                         <a class="button is-info"> Search </a>
                     </div>
-                </div>
-                <p class="has-text-centered">Or, search by tag</p>
+                </div> --}}
+                <p class="has-text-centered">Search by tag</p>
                 <div class="has-text-centered p-4">
                     <button class="button is-info is-outlined p-1" id='bootstrap'>BootStrap</button>
                     <button class="button is-info is-outlined p-1" id='css'>CSS</button>
@@ -43,7 +54,7 @@
     <div class="container">
         <div class="columns">
             <div class="column is-4">
-                <p class="has-text-left is-size-3 title">Past Searches</p>
+                <p class="has-text-left is-size-3 title">Previously Visited</p>
                 <a class="is-size-4">"Past Search"</a><br />
                 <a class="is-size-4">"Past Search"</a><br />
                 <a class="is-size-4">"Past Search"</a><br />
@@ -57,13 +68,13 @@
                     <a>This is a question posted by a user.</a><br />
                     <a>This is a question posted by a user.</a><br />
                     <a>This is a question posted by a user.</a> --}}
-                    <ol class="post-list">
+                    <ul class="post-list">
                         {{#each posts as |post|}}
                         <li>
-                            {{> post-info post }}
+                            <a href="/post/{{post.id}}">{{ post.title }}</a>
                         </li>
                         {{/each}}
-                    </ol>
+                    </ul>
                 </div>
             </div>
         </div>

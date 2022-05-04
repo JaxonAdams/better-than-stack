@@ -1,6 +1,8 @@
 async function commentFormHandler(event) {
   event.preventDefault();
 
+  console.log('clicked');
+
   const comment_text = document
     .querySelector('textarea[name="comment-body"]')
     .value.trim();
@@ -22,7 +24,8 @@ async function commentFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.reload();
+      console.log('response ok');
+      document.location.replace(`/post/${post_id}`);
     } else {
       alert(response.statusText);
     }
@@ -30,5 +33,5 @@ async function commentFormHandler(event) {
 }
 
 document
-  .querySelector('.comment-form')
+  .querySelector('#comment-form')
   .addEventListener('submit', commentFormHandler);
