@@ -21,7 +21,7 @@ Post.hasMany(Comment, {
 });
 
 Post.belongsTo(Topic, {
-    foreignKey: 'post_id'
+    foreignKey: 'topic_id'
 });
 
 Comment.belongsTo(User, {
@@ -31,10 +31,6 @@ Comment.belongsTo(User, {
 Comment.belongsTo(Post, {
     foreignKey: 'post_id',
 });
-
-// Topic.belongsToMany(Post, {
-//     foreignKey: 'topic_id'
-// });
 
 Topic.hasMany(Post, {
     foreignKey: 'post_id',

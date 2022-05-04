@@ -1,12 +1,20 @@
 const router = require('express').Router();
-const { Post, User, Comment} = require('../../models');
+const { Post, User, Comment, Topic} = require('../../models');
 
 // get all posts
 router.get('/', (req, res) => {
     Post.findAll({
-        attributes: ['id', 'title', 'body', 'post_url', 'created_at'],
+        attributes: ['id','title', 'body', 'post_url', 'created_at'],
         order: [['created_at', 'DESC']],
         include: [
+            {
+                model: Topic,
+                attributes: ['topic_name']
+            },
+            {
+                model: User,
+                attributes: ['username']
+            },
             {
                 model: Comment,
                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -14,10 +22,6 @@ router.get('/', (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
-            },
-            {
-                model: User,
-                attributes: ['username']
             }
         ]
     })
@@ -35,6 +39,10 @@ router.get('/:id', (req, res) => {
         },
         attributes: ['id', 'title', 'body', 'post_url', 'created_at'],
         include: [
+            {
+                model: Topic,
+                attributes: ['topic_name']
+            },
             {
                 model: Comment,
                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -59,7 +67,8 @@ router.post('/', (req, res) => {
         title: req.body.title,
         body: req.body.body,
         post_url: req.body.post_url,
-        user_id: req.body.user_id
+        user_id: req.body.user_id,
+        topic_id: req.body.topic_id
     })
         .then((dbPostData) => res.json(dbPostData))
         .catch((err) => {
@@ -71,7 +80,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     Post.update(
         {
-            title: req.body.title
+            title: req.body.title,
+            body: req.body.body,
         },
         {
             where: {
