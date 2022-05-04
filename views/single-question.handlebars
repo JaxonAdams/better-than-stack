@@ -19,9 +19,9 @@
                 <br>
                 <p class="has-text-centered is-size-3 title">Answers:</p>
                 <div class="has-text-centered is-size-4">
-                    {{#each posts as |post|}}
+                    {{#each post.comments as |comment|}}
                         <li class="is-size-4">
-                            {{ post.comment }}
+                            {{ comment.comment_text }}
                         </li>
                     {{/each}}
                     {{!-- <p>This is an answer provided by a user</p>
