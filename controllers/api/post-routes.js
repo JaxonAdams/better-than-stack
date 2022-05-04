@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
             'post_url',
             'title',
             'created_at',
+            'topic_id'
         ],
         order: [['created_at', 'DESC']],
         include: [
@@ -23,7 +24,11 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
-            }
+            },
+            // {
+            //     model: Topic,
+            //     attributes: ['id', 'topic_name']
+            // }
         ]
     })
         .then(dbPostData => res.json(dbPostData))
@@ -43,6 +48,7 @@ router.get('/:id', (req, res) => {
             'post_url',
             'title',
             'created_at',
+            'topic_id'
         ],
         include: [
             {
@@ -56,7 +62,11 @@ router.get('/:id', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
-            }
+            },
+            // {
+            //     model: Topic,
+            //     attributes: ['id', 'topic_name']
+            // }
         ]
     })
         .then(dbPostData => {
@@ -76,7 +86,8 @@ router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
         post_url: req.body.post_url,
-        user_id: req.body.user_id
+        user_id: req.body.user_id,
+        // topic_id: req.body.topic_id,
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
