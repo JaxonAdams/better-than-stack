@@ -2,7 +2,7 @@
     <div class="container">
         <div class="columns">
             <div class="column is-half is-offset-one-quarter">
-                <div class=" new-post-form m-6">
+                <form class=" new-post-form m-6">
                     <p class="title is-size-3 has-text-centered">Submit a Question</p>
                     <div class="field">
                         <label for="post-title" class="label">Question Title</label>
@@ -11,12 +11,12 @@
                         </div>
                     </div>
 
-                    <div class="field">
+                    {{!-- <div class="field">
                         <label class="label">Question</label>
                         <div class="control">
                         <textarea class="textarea" placeholder="Question"></textarea>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="field">
                         <label for="post-url" class="label">GitHub Repo Link</label>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
 
-                    <div class="field">
+                    {{!-- <div class="field">
                         <label class="label">Tags</label>
                         <div class="control">
                             <label class="checkbox p-1"><input type="checkbox"> BootStrap</label><br>
@@ -42,7 +42,7 @@
                             <label class="checkbox p-1"><input type="checkbox"> ORM</label><br>
                             <label class="checkbox p-1"><input type="checkbox"> React</label>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="field is-grouped">
                         <div class="control">
@@ -52,7 +52,7 @@
                             <a href="/" class="button is-info is-light">Cancel</a>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>            
