@@ -84,7 +84,7 @@ router.get('/new', (req, res) => {
     return;
   }
 
-  res.render('question-post');
+  res.render('question-post', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/newcomment/:id', (req, res) => {
@@ -93,7 +93,7 @@ router.get('/newcomment/:id', (req, res) => {
     return;
   }
 
-  res.render('answer-post');
+  res.render('answer-post', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/login', (req, res) => {
