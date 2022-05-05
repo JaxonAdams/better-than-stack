@@ -17,9 +17,15 @@
             </div>
 
             <div class="column is-8">
+                {{#if loggedIn}}
                 <div id="ask-question" class="has-text-centered">
                     <a href="/new" class="button has-text-centered is-info is-size-4">ASK A QUESTION</a>
                 </div>
+                {{else}}
+                <div id="ask-question" class="has-text-centered">
+                    <a href="/login" class="button has-text-centered is-info is-size-4">LOGIN TO ASK A QUESTION</a>
+                </div>
+                {{/if}}
                 <br>
                 {{!-- <div class="field has-addons">
                     <div class="control is-expanded">

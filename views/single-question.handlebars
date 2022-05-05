@@ -4,19 +4,18 @@
             <div class="column has-text-centered">
                 <p class="has-text-centered is-size-3 title p-6">
                 {{post.title}}</p>
-                <br>
-                <br>
-                <p>
-                    {{post.body}}
+                <p class="is-size-5">
+                {{post.body}}
                 </p>
-                <br>
                 <br>
                 <a>{{post.post_url}}</a>
                 <br>
                 <br>
+                {{#if loggedIn}}
                 <a href="/newcomment/{{post.id}}" class="button is-info is-outlined p-1">Answer this question</a><br />
                 <br>
                 <br>
+                {{/if}}
                 <p class="has-text-centered is-size-3 title">Answers:</p>
                 <div class="has-text-centered is-size-4">
                     {{#each post.comments as |comment|}}

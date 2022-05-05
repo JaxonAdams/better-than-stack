@@ -7,7 +7,7 @@ const { Post, User, Comment, Vote } = require('../models');
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+    attributes: ['id', 'body', 'post_url', 'title', 'created_at'],
     include: [
       {
         model: Comment,
@@ -43,7 +43,7 @@ router.get('/post/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+    attributes: ['id', 'body', 'post_url', 'title', 'created_at'],
     include: [
       {
         model: Comment,
@@ -79,7 +79,7 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-  if (req.session.loggedIn) {
+  if (!req.session.loggedIn) {
     res.redirect('/');
     return;
   }
@@ -88,7 +88,7 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/newcomment/:id', (req, res) => {
-  if (req.session.loggedIn) {
+  if (!req.session.loggedIn) {
     res.redirect('/');
     return;
   }
