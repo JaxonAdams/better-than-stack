@@ -1,0 +1,82 @@
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-4">
+                <p class="has-text-left is-size-3 title">Suggested For Me</p>
+                {{!-- <a class="is-size-4">"Suggested Search"</a><br />
+                <a class="is-size-4">"Suggested Search"</a><br />
+                <a class="is-size-4">"Suggested Search"</a><br />
+                <a class="is-size-4">"Suggested Search"</a> --}}
+                <ul class="post-list">
+                        {{#each posts as |post|}}
+                        <li class="is-size-4">
+                            <a href="/post/{{post.id}}">{{ post.title }}</a>
+                        </li>
+                        {{/each}}
+                </ul>
+            </div>
+
+            <div class="column is-8">
+                <div id="ask-question" class="has-text-centered">
+                    <a href="/new" class="button has-text-centered is-info is-size-4">ASK A QUESTION</a>
+                </div>
+                <br>
+                {{!-- <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" placeholder="Search..." />
+                    </div>
+                    <div class="control">
+                        <a class="button is-info"> Search </a>
+                    </div>
+                </div> --}}
+                <p class="has-text-centered">Search by tag</p>
+                <div class="has-text-centered p-4">
+                    <button class="button is-info is-outlined p-1" id='bootstrap'>BootStrap</button>
+                    <button class="button is-info is-outlined p-1" id='css'>CSS</button>
+                    <button class="button is-info is-outlined p-1" id='express'>Express</button>
+                    <button class="button is-info is-outlined p-1" id='git'>Git</button>
+                    <button class="button is-info is-outlined p-1" id='html'>HTML</button>
+                    <button class="button is-info is-outlined p-1" id='javascript'>Javascript</button>
+                    <button class="button is-info is-outlined p-1" id='jest'>Jest</button>
+                    <button class="button is-info is-outlined p-1" id='jquery'>Jquery</button>
+                    <button class="button is-info is-outlined p-1" id='mvc'>MVC</button>
+                    <button class="button is-info is-outlined p-1" id='mysql'>mySQL</button>
+                    <button class="button is-info is-outlined p-1" id='node'>Node.js</button>
+                    <button class="button is-info is-outlined p-1" id='orm'>ORM</button>
+                    <button class="button is-info is-outlined p-1" id='react'>React</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-4">
+                <p class="has-text-left is-size-3 title">Previously Visited</p>
+                <a class="is-size-4">"Past Search"</a><br />
+                <a class="is-size-4">"Past Search"</a><br />
+                <a class="is-size-4">"Past Search"</a><br />
+                <a class="is-size-4">"Past Search"</a>
+            </div>
+
+            <div class="column is-8">
+                <p class="has-text-centered is-size-3 title">Recent Questions</p>
+                <div class="has-text-centered is-size-4">
+                    {{!-- <a>This is a question posted by a user.</a><br />
+                    <a>This is a question posted by a user.</a><br />
+                    <a>This is a question posted by a user.</a><br />
+                    <a>This is a question posted by a user.</a> --}}
+                    <ul class="post-list">
+                        {{#each posts as |post|}}
+                        <li>
+                            <a href="/post/{{post.id}}">{{ post.title }}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

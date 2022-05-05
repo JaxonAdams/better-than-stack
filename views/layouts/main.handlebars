@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Better Than Stack</title>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar has-background-info">
+        <div class="p-5 ml-6">
+            <a href="/" class="has-text-left has-text-black title is-size-1 mb-0">
+            Better Than Stack
+            </a>
+            <h6 class="has-text-left has-text-black is-size-5 pt-0 is-italic">
+            When the odds feel stacked against you
+            </h6>
+        </div>
+        <div class="navbar-end buttons are-small is-ghost">
+            {{#if loggedIn}}
+            <a id="logout" class="has-text-right is-size-4 has-text-black p-6">Logout</a>
+            {{else}}
+            <a id="login" class="has-text-right is-size-4 has-text-black p-6" href="/login">Login</a>
+            {{/if}}
+        </div>
+    </nav>
+
+    <main>
+        {{{ body }}}
+    </main>
+
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+</body>
+</html>

@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+        <div class="columns">
+            <div class="column has-text-centered">
+                <p class="has-text-centered is-size-3 title p-6">
+                {{post.title}}</p>
+                <br>
+                <br>
+                <p>
+                    {{post.body}}
+                </p>
+                <br>
+                <br>
+                <a>{{post.post_url}}</a>
+                <br>
+                <br>
+                <a href="/newcomment/{{post.id}}" class="button is-info is-outlined p-1">Answer this question</a><br />
+                <br>
+                <br>
+                <p class="has-text-centered is-size-3 title">Answers:</p>
+                <div class="has-text-centered is-size-4">
+                    {{#each post.comments as |comment|}}
+                        <li class="is-size-4">
+                            {{ comment.comment_text }}
+                        </li>
+                    {{/each}}
+                    {{!-- <p>This is an answer provided by a user</p>
+                    <br />
+                    <p>This is an answer provided by a user</p>
+                    <br />
+                    <p>This is an answer provided by a user</p>
+                    <br />
+                    <p>This is an answer provided by a user</p> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

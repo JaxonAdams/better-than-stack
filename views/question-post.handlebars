@@ -1,0 +1,61 @@
+<section>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-half is-offset-one-quarter">
+                <form class=" new-post-form m-6">
+                    <p class="title is-size-3 has-text-centered">Submit a Question</p>
+                    <div class="field">
+                        <label for="post-title" class="label">Question Title</label>
+                        <div class="control">
+                        <input id="post-title" name="post-title" class="input" type="text" placeholder="Question Title" />
+                        </div>
+                    </div>
+
+                    {{!-- <div class="field">
+                        <label class="label">Question</label>
+                        <div class="control">
+                        <textarea class="textarea" placeholder="Question"></textarea>
+                        </div>
+                    </div> --}}
+
+                    <div class="field">
+                        <label for="post-url" class="label">GitHub Repo Link</label>
+                        <div class="control">
+                        <input id="post-url" name="post-url" class="input" placeholder="GitHub Link"></input>
+                        </div>
+                    </div>
+
+                    {{!-- <div class="field">
+                        <label class="label">Tags</label>
+                        <div class="control">
+                            <label class="checkbox p-1"><input type="checkbox" id='bootstrap'> BootStrap</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='css'> CSS</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='express'> Express</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='git'> Git</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='html'> HTML</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='javascript'> Javascript</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='jest'> Jest</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='jquery'> Jquery</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='mvc'> MVC</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='mysql'> mySQL</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='node'> Node.js</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='orm'> ORM</label><br>
+                            <label class="checkbox p-1"><input type="checkbox" id='react'> React</label>
+                        </div>
+                    </div> --}}
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="submit" class="button is-info">Submit</button>
+                        </div>
+                        <div class="control">
+                            <a href="/" class="button is-info is-light">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>            
+</section>
+
+<script src="/javascript/question-post.js"></script>
