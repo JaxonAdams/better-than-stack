@@ -4,6 +4,7 @@ async function newFormHandler(event) {
   const title = document.querySelector('input[name="post-title"]').value;
   const post_url = document.querySelector('input[name="post-url"]').value;
   const body = document.querySelector('textarea[name="post-body"]').value;
+  //   const topic_name = document.querySelector('input[name="tag"]:checked').value;
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
@@ -11,6 +12,7 @@ async function newFormHandler(event) {
       title,
       body,
       post_url
+      //   topic_name
     }),
     headers: {
       'Content-Type': 'application/json'
