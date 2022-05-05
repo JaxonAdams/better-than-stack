@@ -17,9 +17,15 @@
             </div>
 
             <div class="column is-8">
+                {{#if loggedIn}}
                 <div id="ask-question" class="has-text-centered">
                     <a href="/new" class="button has-text-centered is-info is-size-4">ASK A QUESTION</a>
                 </div>
+                {{else}}
+                <div id="ask-question" class="has-text-centered">
+                    <a href="/login" class="button has-text-centered is-info is-size-4">LOGIN TO ASK A QUESTION</a>
+                </div>
+                {{/if}}
                 <br>
                 {{!-- <div class="field has-addons">
                     <div class="control is-expanded">
@@ -55,10 +61,17 @@
         <div class="columns">
             <div class="column is-4">
                 <p class="has-text-left is-size-3 title">Previously Visited</p>
+                <ul class="post-list">
+                    {{#each posts as |post|}}
+                    <li class="is-size-4">
+                        <a href="/post/{{post.id}}">{{ post.title }}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{!-- <a class="is-size-4">"Past Search"</a><br />
                 <a class="is-size-4">"Past Search"</a><br />
                 <a class="is-size-4">"Past Search"</a><br />
-                <a class="is-size-4">"Past Search"</a><br />
-                <a class="is-size-4">"Past Search"</a>
+                <a class="is-size-4">"Past Search"</a> --}}
             </div>
 
             <div class="column is-8">

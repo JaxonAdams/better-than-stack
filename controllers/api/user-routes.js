@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id', 'body', 'title', 'post_url', 'created_at']
       },
       {
         model: Comment,
@@ -71,25 +71,25 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
-        req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
 
-            res.json({ user: dbUserData, message: 'You are now logged in!' });
-        });
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
+  });
 });
 
 // Log Out User
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 router.put('/:id', (req, res) => {
