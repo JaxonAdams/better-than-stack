@@ -1,4 +1,4 @@
-![better-than-slack](https://user-images.githubusercontent.com/96997462/166492110-b2c0f960-59f3-46e0-8904-ac20120a4585.JPG)
+![better-than-stack](https://user-images.githubusercontent.com/96997462/167319082-8d67d79d-fc5c-4623-9cb3-ce71b581af5a.JPG)
 
 ## Table of Contents
  - [Description](#description)
